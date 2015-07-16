@@ -1,0 +1,35 @@
+<style type="text/css">
+    .hero {
+        height: 100%;
+        background-image: url(<%= @post.image_url %>);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    .hero h1 {
+        margin-top: 0;
+        padding-top: 15%;
+        font-size: 7em;
+        font-weight: 900;
+        color: white;
+      }
+</style>
+
+
+    <div class="hero">
+      <div class="container">
+        <h1><%= @post.title %></h1>
+      </div>
+    </div>
+
+    <div class="container content">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="btn-group" role="group" aria-label="...">
+          <a class="btn btn-warning" href="/edit/<%= @post.id %>"><i class="fa fa-pencil-square-o"></i> Edit</a>
+          <a class="btn btn-danger" href="/destroy_post/<%= @post.id %>"><i class="fa fa-trash-o"></i> Destroy</a>
+        </div>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+        <p><%= @post.contents %></p>
+      </div>
+    </div>
+

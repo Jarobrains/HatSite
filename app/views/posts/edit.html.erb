@@ -1,0 +1,27 @@
+    <div class="container content">
+    <div class="row">
+
+
+      <div class="col-md-8 col-md-offset-2">
+
+          <form action="/update/<%= @post.id %>">
+            <div class="form-group">
+              <label for="">Title</label>
+              <input type="string" class="form-control" name="title" id="" placeholder="<%= @post.title %>" value="<%= @post.title %>">
+            </div>
+            <div class="form-group">
+              <label for="">Image URL</label>
+              <input type="url" class="form-control" name="image_url" id=""  value="<%= @post.image_url %>">
+            </div>
+            <div class="form-group">
+              <label for="">Contents</label>
+              <textarea class="form-control" name="contents" id="" rows="5" placeholder="<%= @post.contents %>"><%= @post.contents %></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+
+        </div>
+
+    </div>
+    </div>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/paper/bootstrap.min.css">
+     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <style>
+
+      html, body {
+        height: 100%;
+      }
+
+      .navbar {
+        margin-bottom: 0;
+      }
+
+      .hero {
+        height: 100%;
+        background: url(https://d262ilb51hltx0.cloudfront.net/max/2000/1*hiSr6Y4nQt6DAmJZQMNYOA.png);
+      }
+
+      .hero h1 {
+        margin-top: 0;
+        padding-top: 15%;
+        font-size: 7em;
+        font-weight: 900;
+        color: white;
+      }
+
+      .content {
+        padding-top: 4em;
+        font-size: 1.4em;
+      }
+
+      p {
+        white-space: pre-line
+      }
+
+      article {
+        border-bottom: 1px solid lightgray;
+        padding-bottom: 24px;
+        margin-bottom: 72px;
+      }
+
+      .article-list {
+        padding-top: 72px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="article-list">
+    <% @posts.each do |post|%>
+      <div class="row">
+        <article class="col-md-6 col-md-offset-3">
+          <img class="img-responsive" src="<%= post.image_url %>" alt="">
+          <h3><a href="#"><%= post.title %></a></h3>
+          <h4><%= post.contents.split[0..30].join(" ") %>...</h4>
+          <div class="btn-group" role="group" aria-label="...">
+            <a class="btn btn-primary" href="/post/<%= post.id %>"><i class="fa fa-search-plus"></i> Show</a>
+            <a class="btn btn-warning" href="/edit/<%= post.id %>"><i class="fa fa-pencil-square-o"></i> Edit</a>
+            <a class="btn btn-danger" href="/destroy_post/<%= post.id %>"><i class="fa fa-trash-o"></i> Destroy</a>
+          </div>
+        </article>
+      </div>
+      <% end %>
+    </div>
+  </body>
+</html>
